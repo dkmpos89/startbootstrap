@@ -14,6 +14,29 @@ function loginbutton($buttonstyle = "square") {
 	echo $button;
 }
 
+function loadbackpack() {
+	require 'userInfo.php';
+	$url = file_get_contents("http://steamcommunity.com/inventory/".$steamprofile['steamid']."/570/2?l=english&count=5000");
+	$content = json_decode($url, true);
+	$imagen = $content['descriptions'][0]['icon_url'];
+	 echo 	"<div class='col-md-3 col-sm-6 hero-feature'>
+                <div class='thumbnail'>
+                    <img src='https://steamcommunity-a.akamaihd.net/economy/image/".$imagen."' alt=''>
+                    <div class='caption'>
+                        <h3>Feature Label</h3>
+                        <p>".$imagen."</p>
+                        <p><a href='#'' class='btn btn-primary'>Buy Now!</a> <a href='#'' class='btn btn-default'>More Info</a>
+                        </p>
+                    </div>
+                </div>
+            </div>"; //logout button
+	
+    //print_r("https://steamcommunity-a.akamaihd.net/economy/image/".$imagen); 
+   	echo "<br><br><br>";
+    print_r($content);     
+}
+
+
 if (isset($_GET['login'])){
 	require 'openid.php';
 	try {

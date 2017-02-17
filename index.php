@@ -111,7 +111,7 @@
 
         <!-- Page Features -->
         <div class="row text-center">
-            <!-- Aqui van los items -->
+            <p>Info desde Json:</p><? echo loadbackpack(); ?>
         </div>
         <!-- /.row -->
 

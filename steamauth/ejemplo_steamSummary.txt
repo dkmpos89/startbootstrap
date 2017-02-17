@@ -1,0 +1,25 @@
+{
+	"response": {
+		"players": [
+			{
+				"steamid": "76561198124693824",
+				"communityvisibilitystate": 3,
+				"profilestate": 1,
+				"personaname": "D K",
+				"lastlogoff": 1487336252,
+				"commentpermission": 2,
+				"profileurl": "http://steamcommunity.com/profiles/76561198124693824/",
+				"avatar": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/f8/f8f6e8b0e4063e23ed6e63e09ef7a06863751009.jpg",
+				"avatarmedium": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/f8/f8f6e8b0e4063e23ed6e63e09ef7a06863751009_medium.jpg",
+				"avatarfull": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/f8/f8f6e8b0e4063e23ed6e63e09ef7a06863751009_full.jpg",
+				"personastate": 0,
+				"realname": "don Meepo!",
+				"primaryclanid": "103582791429521408",
+				"timecreated": 1391021949,
+				"personastateflags": 0,
+				"loccountrycode": "CL"
+			}
+		]
+		
+	}
+}
