@@ -18,22 +18,34 @@ function loadbackpack() {
 	require 'userInfo.php';
 	$url = file_get_contents("http://steamcommunity.com/inventory/".$steamprofile['steamid']."/570/2?l=english&count=5000");
 	$content = json_decode($url, true);
-	$imagen = $content['descriptions'][0]['icon_url'];
-	 echo 	"<div class='col-md-3 col-sm-6 hero-feature'>
-                <div class='thumbnail'>
-                    <img src='https://steamcommunity-a.akamaihd.net/economy/image/".$imagen."' alt=''>
-                    <div class='caption'>
-                        <h3>Feature Label</h3>
-                        <p>".$imagen."</p>
-                        <p><a href='#'' class='btn btn-primary'>Buy Now!</a> <a href='#'' class='btn btn-default'>More Info</a>
-                        </p>
-                    </div>
-                </div>
-            </div>"; //logout button
+	$arrayInventory = $content['assets'];
+	$arrayDescriptions = $content['descriptions'];
+	$cont = 0;
 	
+	$resultado = count($arrayInventory);
+
+	for ($i=0; $i<$resultado; $i++) {
+		$imagen = $content['descriptions'][$i]['icon_url'];
+		$url = "https://steamcommunity-a.akamaihd.net/economy/image/".$imagen."";
+		
+		$item = "<div class='col-sm-3'>
+				    <div class='img-item'>
+				      <a href='".$url."'>
+				        <img src='".$url."' alt='Lights' style='width:100%'>
+				        <div class='caption name'>
+				          <p>".$content['descriptions'][$i]['name']."</p>
+				        </div>
+				      </a>
+				    </div>
+				  </div>";
+
+        echo $item;  
+	}
+  
+	//<p>".$content['descriptions'][$i]['descriptions'][0]['value']."</p>
+	//<p><a href='#'' class='btn btn-primary'>Bid Now!</a> <a href='#'' class='btn btn-default'>More Info</a></p>
     //print_r("https://steamcommunity-a.akamaihd.net/economy/image/".$imagen); 
-   	echo "<br><br><br>";
-    print_r($content);     
+    //print_r($content);     
 }
 
 

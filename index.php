@@ -22,8 +22,10 @@
     <title>Heroic Features - Start Bootstrap Template</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
+    
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap_2.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/heroic-features.css" rel="stylesheet">
 
@@ -83,14 +85,65 @@
                     <li class="dropdown">
                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="img-rounded" src="<?=$steamprofile['avatar'];?>"> <b><?=$steamprofile['personaname'];?></b><b class="caret"></b></a>
                        <span class="dropdown-arrow"></span>
-                       <ul class="dropdown-menu">
-                           <li><a href="steamauth/backpack.php"> Load inventory </a></li>
-                           <li><a href="#"> Option 2 </a></li>
-                           <li><a href="#"> Option 3 </a></li>
-                           <li><a href="#"> Option 4 </a></li>
-                           <li class="divider"></li>
-                           <li><a href="steamauth/logout.php">Logout</a></li>
-                       </ul>
+                       <ul class="dropdown-menu" role="menu" aria-labelledby="user_options_dropdown_toggle" id="user_options_dropdown_content">
+                          <li role="presentation" class="dropdown-header welcome-li">
+                            <div class="avatar-wrapper"><img alt="Photo" class="img-circle user-placeholder" src="<?=$steamprofile['avatar'];?>" width="24"></div>
+                            <div class="welcome-wrapper">
+                              <p class="welcome-msg">
+                                ¡Bienvenido!
+                              </p>
+                            </div>
+                            <div class="clearfix"></div>
+                          </li>
+                          <li role="presentation" class="divider"></li>
+                          <li role="presentation">
+                            <a href="#" role="menuitem" tabindex="-1">
+                              <i class="fa fa-desktop"></i>
+                              <span>Dashboard</span>
+                            </a>
+                          </li>
+                          <li role="presentation" class="divider"></li>
+                          <li role="presentation">
+                            <a href="#" role="menuitem" tabindex="-1">
+                              <i class="fa fa-shopping-cart"></i>
+                              <span>Mis compras</span>
+                            </a>
+                          </li>
+                          <li role="presentation">
+                              <a href="#" role="menuitem" tabindex="-1">
+                              <i class="fa fa-money"></i>
+                              <span>Mis puntos</span>
+                            </a>
+                          </li>
+                          <li role="presentation">
+                            <a href="#" role="menuitem" tabindex="-1">
+                              <i class="fa fa-car"></i>
+                              <span>Rutas favoritas</span>
+                            </a>
+                          </li>
+                          <li role="presentation">
+                            <a href="#" role="menuitem" tabindex="-1">
+                              <i class="fa fa-users"></i>
+                              <span>Pasajeros frecuentes</span>
+                            </a>  
+                          </li>
+                          <li role="presentation">
+                            <a href="#" role="menuitem" tabindex="-1">
+                              <i class="fa fa-envelope"></i>
+                              <span>Mensajes</span>
+                            </a>  
+                          </li>
+                          <li role="presentation">
+                            <a href="#" role="menuitem" tabindex="-1">
+                              <i class="fa fa-cogs"></i>
+                              <span>Ajustes</span>
+                            </a>    
+                          </li>
+                          <li role="presentation" class="divider"></li>
+                          <li role="presentation" class="text-center">
+                            <a data-method="delete" href="steamauth/logout.php" rel="nofollow">Salir</a>
+                          </li>
+                        </ul>
                    </li>﻿
                 </ul>   
             <? } else { ?>
@@ -104,14 +157,18 @@
         <!-- Title -->
         <div class="row">
             <div class="col-lg-12">
-                <h3>Latest Features</h3>
+                <h3>Dota 2 Inventory</h3>
             </div>
         </div>
         <!-- /.row -->
 
         <!-- Page Features -->
-        <div class="row text-center">
-            <p>Info desde Json:</p><? echo loadbackpack(); ?>
+        <div class="row text-center" style="padding : 4px;width : 50%; height : 500px; overflow : auto; ">
+            <? if (isset($_SESSION['steamid'])){ ?>
+                <p>Info desde Json:</p><? echo loadbackpack(); ?>
+            <? } else {?>
+                <!-- Aqui va el codigo cuando no esta logeado -->
+            <? }?> 
         </div>
         <!-- /.row -->
 
